@@ -1,0 +1,31 @@
+
+<div class="row">
+  <div class="container">
+    <div class="col-md-3">
+      <form>
+        <legend>Search by picture title:</legend>
+          <input id="search" type="text" class="form-control" value="<%= params[:keyword] %>" name="keyword" placeholder="keyword">
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row text-right">
+  <%= link_to 'New Photo', new_photo_path %>
+</div>
+
+<hr class="featurette-divider"></hr>
+
+<div class="container story_pics">
+  <% @photos.in_groups_of(4) do |group| %>
+    <div class="row">
+      <% group.compact.each do |photo| %>
+        <div class="col-md-3 photoindex">
+          <%= link_to image_tag(photo.picture_url(:thumb), class:"img-responsive"), photo%>
+          <% link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<hr class="featurette-divider"></hr>

@@ -1,0 +1,6 @@
+<h2>Comments</h2>
+
+  <%= @photo.comments.each do |comment| %>
+    <p><h3><%= comment.body %><h3></p>
+    <%# link_to 'Delete Comment', [comment.photo, comment], methd: :delete, data: { comfirm: 'Are you sure?'} %>
+  <% end %>

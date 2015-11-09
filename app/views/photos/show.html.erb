@@ -1,0 +1,14 @@
+
+
+<div class="row">
+<p><h3><small>Title:  </small><%= @photo.title %> | <small>User:  </small><%= link_to @photo.user.email, user_photos_path %></h3></p>
+<div class="row">
+
+  <%= image_tag(@photo.picture) %>
+
+<%= render @photo.comments %>
+<%= render 'comments/form' %>
+
+
+<p><%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %> </p>
