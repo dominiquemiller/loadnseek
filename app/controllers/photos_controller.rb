@@ -12,9 +12,6 @@ class PhotosController < ApplicationController
   def show
   end
 
-  def user_photos
-    @photos = Photo.all
-  end
 
   # GET /photos/new
   def new
@@ -28,8 +25,8 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(photo_params)
-    @photo.user = current_user
+
+    @photo = current_user.photos.create(photo_params)
 
     respond_to do |format|
       if @photo.save

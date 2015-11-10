@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   devise_for :users
   get '/user_photos', to: 'photos#user_photos'
 
+get 'users/:id/uploads/', to: 'users#uploads', as: 'uploads_user'
+
   root 'photos#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

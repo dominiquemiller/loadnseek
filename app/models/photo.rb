@@ -4,5 +4,6 @@ class Photo < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
 
   scope :search, ->(keyword){ where('lower(title) LIKE ?', "%#{keyword}%") if keyword.present? }
+  
 
 end
