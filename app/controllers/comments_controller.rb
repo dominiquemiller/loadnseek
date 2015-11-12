@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   def create
     @photo = Photo.find(params[:photo_id])
-    @comment = @photo.comments.create(comment_params)
-    @comment.user = current_user
+    @comment = @photo.comments.create(params[:comment].permit(:comment))
+    @comment.user_id = current_user.id if current_user
     redirect_to photo_path(@photo)
   end
 
