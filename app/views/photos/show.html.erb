@@ -1,15 +1,19 @@
 
 
-<div class="row">
-<p><h3><small>Title:  </small><%= @photo.title %> | <small>User:  </small><%= link_to @photo.user.email, uploads_user_path(@photo.user_id) %></h3></p>
-<div class="row">
+  <div class="row">
+    <p><h3><small>Title:  </small><%= @photo.title %> | <small>User:  </small><%= link_to @photo.user.email, uploads_user_path(@photo.user_id) %></h3></p>
+  <div class="row">
 
-  <%= image_tag(@photo.picture) %>
+<section id="large-photo">
+  <div>
+    <p><%= image_tag(@photo.picture) %><p>
+  </div>
 
+</section>
+  <p><%= render 'comments/form' %></p>
 
-<p><%= render 'comments/form' %></p>
+  <p><%= render @photo.comments %></p>
 
-<p><%= render @photo.comments %></p>
 
 
 <p><%= link_to 'Edit', edit_photo_path(@photo) %> |
