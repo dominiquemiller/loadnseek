@@ -16,3 +16,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).on("page:change", function() {
+  $('.photo-index').on('mouseenter', function() {
+    $('.title-pop').animate({'top': '-100px', 'opacity': '1'}, 'fast');
+  });
+  $('.photo-index').on('mouseleave', function() {
+    $('.title-pop').animate({'top': '0px', 'opacity': '0'}, 'fast');
+  });
+});
