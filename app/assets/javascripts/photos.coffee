@@ -5,4 +5,4 @@ $(document).on "page:change", ->
   $('#photos-section').fadeIn(1200)
   $('#large-photo').fadeIn(1200)
   $('#large-photo').click ->
-    $(this).fadeOut()
+    $(this).fadeOut(2000)

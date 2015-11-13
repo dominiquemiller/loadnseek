@@ -1,7 +1,8 @@
 
 
   <div class="row">
-    <p><h3><small>Title:  </small><%= @photo.title %> | <small>User:  </small><%= link_to @photo.user.email, uploads_user_path(@photo.user_id) %></h3></p>
+    <h3><small>Title:  </small><%= content_tag(:p, @photo.title, class: "title-pop") %>
+    <small>User:  </small><%= link_to @photo.user.email, uploads_user_path(@photo.user_id) %></h3>
   <div class="row">
 
 <section id="large-photo">
