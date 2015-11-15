@@ -30,8 +30,13 @@ $(document).on("page:change", function() {
       var apiKey = "6caa0cf4dc9351c606b054d9e94cdb6f";
       $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=" + apiKey, function(data){
         console.log(data.weather[0].description);
-        $(".weather").html("In " + data.name + " it is currently: " + Math.round((data.main.temp * 9/5) - 459.67) + " with " + data.weather[0].description);
+        $(".weather").html("In " + data.name + " it is currently: " + Math.round((data.main.temp * 9/5) - 459.67));
+        var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+        $(".weather-icon").html("<img src='" + icon + "'>");
       });
    });
  }
+ $.getJSON("/photos.json", function(data){
+   console.log(data[0].title);
+ });
 });
