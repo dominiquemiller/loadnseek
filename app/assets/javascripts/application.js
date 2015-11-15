@@ -27,7 +27,11 @@ $(document).on("page:change", function() {
     navigator.geolocation.getCurrentPosition(function(position){
       var lat = position.coords.latitude;
       var lon = position.coords.longitude;
-      alert("latitude:" + lat + "  longitude:" + lon);
+      var apiKey = "6caa0cf4dc9351c606b054d9e94cdb6f";
+      $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=" + apiKey, function(data){
+        console.log(data.weather[0].description);
+        $(".weather").html("In " + data.name + " it is currently: " + Math.round((data.main.temp * 9/5) - 459.67) + " with " + data.weather[0].description);
+      });
    });
-  }
+ }
 });
