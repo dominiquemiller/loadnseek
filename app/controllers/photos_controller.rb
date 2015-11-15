@@ -5,11 +5,16 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.search(params[:keyword])
+
   end
 
   # GET /photos/1
   # GET /photos/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json { render :json => @photo.to_json}
+    end
   end
 
 

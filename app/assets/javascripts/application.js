@@ -23,4 +23,11 @@ $(document).on("page:change", function() {
   $('.photo-index').on('mouseleave', function() {
     $('.title-pop').animate({'top': '0px', 'opacity': '0'}, 'fast');
   });
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position){
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      alert("latitude:" + lat + "  longitude:" + lon);
+   });
+  }
 });
