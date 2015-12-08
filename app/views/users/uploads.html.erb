@@ -1,9 +1,9 @@
 
 
 <div class="container story_pics">
+  <% @photos.each do |photo| %>
+    <%= image_tag photo.picture %>
+  <% end %>
+</div>
 
-      <% @photos.each do |photo| %>
-            <%= image_tag photo.picture %>
-          <% end %>
-        </div>
 <%= link_to 'Back', photos_path %>

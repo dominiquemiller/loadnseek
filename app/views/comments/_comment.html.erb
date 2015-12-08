@@ -1,6 +1,7 @@
 <% if comment.persisted? %>
-<div class="row">
 
+<div class="row">
   <h3><%= comment.user.email if comment.user_id %> : <%= comment.body %> | <%=  time_ago_in_words(comment.created_at) %> ago<h3>
 </div>
+
 <% end %>

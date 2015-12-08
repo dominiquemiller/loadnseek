@@ -5,9 +5,10 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
 
+</head>
+
+<body>
   <div class="row well topofpage">
     <div class="col-md-4 text-left">
       <p class="loggedin"><% if user_signed_in? %> Logged In</p>
@@ -15,17 +16,16 @@
       <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
       <% end %>
     </div>
-  <div class="col-md-8 text-left">
-  <p><h4 class="weather"></h4><span class="weather-icon"></span></p>
+    <div class="col-md-8 text-left">
+      <p><h4 class="weather"></h4><span class="weather-icon"></span></p>
+    </div>
   </div>
-</div>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-<div class="container">
-  <%= yield %>
-</div>
-
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>

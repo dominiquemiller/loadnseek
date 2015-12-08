@@ -15,13 +15,14 @@
 </div>
 
 <hr class="featurette-divider"></hr>
+
 <section id="photos-section">
 <div class="container story_pics">
   <% @photos.in_groups_of(4) do |group| %>
     <div class="row">
       <% group.compact.each do |photo| %>
         <div class="col-md-3 photoindex">
-          <%= link_to image_tag(photo.picture_url(:thumb), class:"img-responsive photo-index"), photo%>
+          <%= link_to image_tag(photo.picture_url(:thumb), id: photo.id, class:"img-responsive photo-index"), photo%>
           <%= content_tag(:p, photo.title, class:"title-pop") %>
           <% link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
@@ -30,4 +31,7 @@
   <% end %>
 </div>
 </section>
+
 <hr class="featurette-divider"></hr>
+
+<div id="content" style="height: 200px;"></div>

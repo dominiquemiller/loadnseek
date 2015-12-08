@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
+//= require jquery-ui/draggable
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require jquery_ujs
@@ -18,7 +20,7 @@
 //= require_tree .
 $(document).on("page:change", function() {
   $('.photo-index').on('mouseenter', function() {
-    $('.title-pop').animate({'top': '-100px', 'opacity': '1'}, 'fast');
+    $('.title-pop').animate({'top': '1px', 'opacity': '0'}, 'fast');
   });
   $('.photo-index').on('mouseleave', function() {
     $('.title-pop').animate({'top': '0px', 'opacity': '0'}, 'fast');
@@ -39,4 +41,20 @@ $(document).on("page:change", function() {
  $.getJSON("/photos.json", function(data){
    console.log(data[0].title);
  });
+});
+
+$(document).on("page:change", function() {
+  $('.photo-index').draggable({
+    cursur: 'move',
+    snap: '#content',
+  });
+  $('#content').droppable({
+    drop: handleDropEvent
+  });
+  function handleDropEvent(event, ui){
+    var draggable = ui.draggable;
+    console.log(draggable);
+    alert('Testing, my picture is' + draggable.attr('id'));
+
+  }
 });
